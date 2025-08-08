@@ -1,12 +1,10 @@
 services:
   - type: web
-    name: telegram-gpt-bot
+    name: gpt-tg-bot
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python bot.py
-    envVars:
-      - key: BOT_TOKEN
-        sync: false
-      - key: OPENAI_API_KEY
-        sync: false
+    build:
+      environment:
+        pythonVersion: 3.11
